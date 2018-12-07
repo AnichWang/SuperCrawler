@@ -81,6 +81,6 @@ class Tool:
 
 
 if __name__ == "__main__":
-    pre = "D:\\_developTool\\SuperCrawler\\resource\\亚洲有码原创-丝袜美腿"
+    pre = "D:\\_developTool\\SuperCrawler\\resource\\"
     Tool.save_image(['http://imagizer.imageshack.com/img922/9004/QZMA7r.jpg', 'http://imagizer.imageshack.com/img924/9363/Q21Tr6.jpg'], pre+"\\aaa\\", "fuck", {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0"})
     #Tool.save_attachment('http://162.252.9.10/forum/attachment.php?aid=2981766', pre+"\\aaa\\", "fuck")

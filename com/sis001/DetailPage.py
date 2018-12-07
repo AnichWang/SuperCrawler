@@ -3,7 +3,7 @@ from urllib.request import urlopen
 import re
 from bs4 import BeautifulSoup
 
-from Tool import Tool
+from com.sis001.Tool import Tool
 
 
 class DetailPage:

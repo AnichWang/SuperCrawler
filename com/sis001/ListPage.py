@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 from bs4 import BeautifulSoup
 
-from DetailPage import DetailPage
+from com.sis001.DetailPage import DetailPage
 
 
 class ListPage:
@@ -18,7 +18,7 @@ class ListPage:
         return self.url_list
 
 if __name__ == "__main__":
-    prePath = "D:\\_developTool\\SuperCrawler\\resource\\亚洲有码原创-丝袜美腿\\"
+    prePath = "D:\\_developTool\\SuperCrawler\\resource\\"
 
     url_sis001_stocking = "http://38.103.161.140/forum/forumdisplay.php?fid=230&filter=type&typeid=1255"
     list_html = urlopen(url_sis001_stocking)
