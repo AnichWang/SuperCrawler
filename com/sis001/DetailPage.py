@@ -63,7 +63,7 @@ class DetailPage:
 
 if __name__ == "__main__":
     headers = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0"}
-    prePath = "D:\\_developTool\\SuperCrawler\\resource\\亚洲有码原创-丝袜美腿\\"
+    prePath = "D:\\_developTool\\SuperCrawler\\resource\\"
     url = "http://38.103.161.140/forum/viewthread.php?tid=10065101&extra=page%3D1%26amp%3Bfilter%3Dtype%26amp%3Btypeid%3D1255"
     html = urlopen(url)
     bsObj = BeautifulSoup(html, "html.parser")
