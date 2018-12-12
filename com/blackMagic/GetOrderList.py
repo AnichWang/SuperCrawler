@@ -1,19 +1,42 @@
-from urllib import parse
+from urllib import request, parse
 import json
-from com.tool.request_client import RequestClient
 
 if __name__ == "__main__":
     url_getOrderList = "http://172.16.10.90:8066/order/query/getOrderList"
 
-    textMod = {"businessType": "-1", "state": "-1", "channel": "-1", "isMerge": "false", "pageIndex": 0}
-    #textmod = json.dumps(textMod).encode(encoding='utf-8')
+    """
+    请求参数：
+    businessType: -1
+        全部业务:-1，电商:2，业务不明:-2
+    state: -1
+    channel: -1
+    isMerge: false
+    pageIndex: 0
+        页数，从0开始
+    pageSize: 
+        页面容量
+    sortField: 
+    sortOrder: 
+    startTime:
+        开始时间，示例 Mon Jan 01 2018 00:00:00 GMT+0800    20180101
+    endTime:
+        结束时间，示例 Fri Nov 30 2018 00:00:00 GMT+0800    20181130
+     """
+    formData = parse.urlencode([('pageIndex', 0), ('pageSize', 60),
+                                ('startTime', 'Mon Jan 01 2018 00:00:00 GMT+0800'),
+                                ('endTime', 'Fri Nov 30 2018 00:00:00 GMT+0800')])
 
-    textmod = json.JSONEncoder().encode(textMod)
-    
-    #textmod = parse.urlencode(textmod).encode(encoding='utf-8')
-    print(textMod)
+    # 获取接口订单数据
+    req = request.Request(url_getOrderList)
+    with request.urlopen(req, formData.encode('utf-8')) as f:
+        orderInfo = f.read().decode('utf-8')
+        #print(orderInfo)
 
-    headers_dict = {"User-Agent": "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:23.0) Gecko/20100101 Firefox/23.0"}
-    request_client = RequestClient(url_getOrderList, headers_dict, '', textMod)
-    response = request_client.request_post(request_client)
+    format_Data = json.loads(orderInfo)
+    results = format_Data['results']
+    orderList = results['list']
+    print("order number is：", results['total'])
+    print(len(orderList))
+
+
 

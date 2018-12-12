@@ -19,8 +19,7 @@ class RequestClient:
 
     @staticmethod
     def request_post(self):
-        req = request.Request(url=self.url, data=self.postData, headers=self.headers)
-        res = request.urlopen(req)
-        res = res.read()
-        return res
+        req = request.Request(url=self.url)
+        with request.urlopen(req, data=self.postData) as httpConnection:
+            return httpConnection.read().decode('utf-8')
 
