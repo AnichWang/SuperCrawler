@@ -30,7 +30,7 @@ if __name__ == "__main__":
     req = request.Request(url_getOrderList)
     with request.urlopen(req, formData.encode('utf-8')) as f:
         orderInfo = f.read().decode('utf-8')
-        #print(orderInfo)
+        print(orderInfo)
 
     format_Data = json.loads(orderInfo)
     results = format_Data['results']
