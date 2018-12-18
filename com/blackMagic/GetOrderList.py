@@ -1,5 +1,6 @@
 from urllib import request, parse
 import json
+import sqlite3
 
 if __name__ == "__main__":
     url_getOrderList = "http://172.16.10.90:8066/order/query/getOrderList"
@@ -32,11 +33,44 @@ if __name__ == "__main__":
         orderInfo = f.read().decode('utf-8')
         print(orderInfo)
 
+    # 解析json数据
     format_Data = json.loads(orderInfo)
     results = format_Data['results']
+    #
     orderList = results['list']
     print("order number is：", results['total'])
     print(len(orderList))
 
+    conn = sqlite3.connect("BlackMagic.db")
+    cursor = conn.cursor()
+    cursor.execute("insert into order_info (
+    id,
+    busTypeName,
+    businessType,
+    cardNum,
+    "dealFee",
+    "excelCreated",
+    "excelPayTime",
+    "favorFee",
+    "orderFee",
+    "orderStatus",
+    "orderStatusName",
+    title,
+    "totalFee")",
+"values (
+    :id,
+    :busTypeName,
+    :businessType,
+    :cardNum,
+    :dealFee,
+    :excelCreated,
+    :excelPayTime,
+    :favorFee,
+    :orderFee,
+    :orderStatus,
+    :orderStatusName,
+    :title,
+    :totalFee);"
+;")
 
 

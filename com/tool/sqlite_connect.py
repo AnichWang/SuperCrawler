@@ -4,7 +4,8 @@ class sqliteConn:
     pass
 
 if __name__ == "__main__":
-    #连接数据库，如不存在，则在当前目录创建
+    
+    # 连接数据库，如不存在，则在当前目录创建
     conn = sqlite3.connect('BlackMagic.db')
     cursor = conn.cursor()
 
