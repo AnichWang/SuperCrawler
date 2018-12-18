@@ -43,34 +43,3 @@ if __name__ == "__main__":
 
     conn = sqlite3.connect("BlackMagic.db")
     cursor = conn.cursor()
-    cursor.execute("insert into order_info (
-    id,
-    busTypeName,
-    businessType,
-    cardNum,
-    "dealFee",
-    "excelCreated",
-    "excelPayTime",
-    "favorFee",
-    "orderFee",
-    "orderStatus",
-    "orderStatusName",
-    title,
-    "totalFee")",
-"values (
-    :id,
-    :busTypeName,
-    :businessType,
-    :cardNum,
-    :dealFee,
-    :excelCreated,
-    :excelPayTime,
-    :favorFee,
-    :orderFee,
-    :orderStatus,
-    :orderStatusName,
-    :title,
-    :totalFee);"
-;")
-
-
