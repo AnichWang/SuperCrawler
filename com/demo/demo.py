@@ -1,7 +1,9 @@
 from urllib import request, parse
 import requests
 
-
+"""
+此脚本模拟iphone端登录微博
+"""
 
 print('Login to weibo.cn...')
 email = input('Email: ')
